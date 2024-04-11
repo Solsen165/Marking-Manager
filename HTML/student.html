@@ -1,16 +1,19 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Sign in</title>
+    <title>Student Log in</title>
+
 </head>
 <body>
-    <h3>View your marks:</h3>
-   
-    <a href="StudentViewMarks.html">
-        <button>Sign in</button>
-      </a>
-    
+<h2>Login</h2>
+<form action="submit.php" method="post">
+  <label for="nameID">Name:</label><br>
+  <input type="text" id="nameID" name="name"><br>
+  <label for="studentID">Student ID:</label><br>
+  <input type="text" id="studentID" name="studentID"><br><br>
+  <input type="submit" value="Submit">
+</form>
 </body>
 </html>
