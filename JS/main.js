@@ -9,4 +9,4 @@ button.addEventListener('click', function(event){
     // Make third option selected
     //dropDown.value = 'Professor'; 
 
-});
+}); 

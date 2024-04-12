@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logout-section {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .logout-section button {
+            background-color: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+            border: none;
+        }
+
+        .logout-section button:hover {
+            color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px 20px; /* Adjusted padding to make space for the fixed navbar */
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="add_major.html"><button>Add Major</button></a>
+        <a href="add_teacher.html"><button>Add Teacher</button></a>
+        <a href="add_student.html"><button>Add Student</button></a>
+    </div>
+
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <!-- Remaining sections remain the same -->
+    </div>
+
+    <div class="logout-section">
+        <button id="logoutBtn">Logout</button>
+    </div>
+</body>
+</html>
