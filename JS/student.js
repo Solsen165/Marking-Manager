@@ -1,27 +1,33 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const rollNumberInput = document.getElementById("rollNumberInput");
-    const viewMarksBtn = document.getElementById("viewMarksBtn");
-    const studentMarks = document.getElementById("studentMarks");
-  
-    // Load student data from local storage
-    let students = JSON.parse(localStorage.getItem('students')) || [];
-  
-    // Function to handle viewing marks
-    function viewMarks() {
-      const rollNumber = rollNumberInput.value;
-      const student = students.find(student => student.rollNumber === rollNumber);
-      if (student) {
-        studentMarks.innerHTML = "";
-        for (const subject in student.subjects) {
-          const listItem = document.createElement("li");
-          listItem.textContent = `${subject}: ${student.subjects[subject]}`;
-          studentMarks.appendChild(listItem);
-        }
-      } else {
-        studentMarks.innerHTML = "<li>Student not found. Please enter a valid roll number.</li>";
-      }
-    }
-  
-    viewMarksBtn.addEventListener("click", viewMarks);
-  });
-  
+const url = 'https://marking-manager-api.vercel.app'
+
+const rollNumberInput = document.getElementById("rollNumberInput");
+const viewMarksBtn = document.getElementById("viewMarksBtn");
+const studentMarks = document.getElementById("studentMarks");
+const errmsg = document.querySelector('#msg');
+
+// Function to handle viewing marks
+async function viewMarks() {
+  const rollNumber = rollNumberInput.value;
+  const student = await getStudent(rollNumber);
+
+  if (student == null) {
+    errmsg.innerHTML = 'Student not found';
+  }
+  else {
+    errmsg.innerHTML = '';
+    sessionStorage.setItem('student', JSON.stringify(student));
+    window.location.replace('studentViewMarks.html')
+  }
+}
+
+async function getStudent(id) {
+  try {
+    const student = await fetch(url + '/students/' + id);
+    const data = await student.json();
+    return data;
+  } catch (error) {
+    return null;
+  }
+}
+
+viewMarksBtn.addEventListener("click", viewMarks);
