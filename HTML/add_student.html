@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <h1>Add Student</h1>
+    <form id="addStudentForm">
+        <label for="studentName">Name</label>
+        <input name="studentName" id="studentName" required>
+        <label for="courses">Select courses</label>
+        <select name="availableCourseDropdown" id="availableCourseDropdown"></select>
+        <button type="button" id="addCourseBtn">Add Course</button>
+        <ul name="selectedCourseList" id="selectedCourseList"></ul>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="msg"></div>
+   <script src="../JS/classes.js"></script>
+   <script src="../JS/add_student.js"></script> 
+</body>
+</html>
