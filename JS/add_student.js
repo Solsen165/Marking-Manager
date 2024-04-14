@@ -2,7 +2,7 @@ const availableCourseList = document.querySelector('#availableCourseDropdown');
 const selectedCourseList = document.querySelector('#selectedCourseList');
 const addCourseBtn = document.querySelector('#addCourseBtn');
 const form = document.querySelector('#addStudentForm')
-const url = 'http://localhost:3000';
+const url = 'https://marking-manager-api.vercel.app';
 
 let availableCourses = [];
 let selectedCourses = [];
