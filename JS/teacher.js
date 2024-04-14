@@ -1,47 +1,42 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const teacherSelect = document.getElementById("teacherSelect");
-    const subjectSelect = document.getElementById("subjectSelect");
-    const markInput = document.getElementById("markInput");
-    const addMarkBtn = document.getElementById("addMarkBtn");
-  
-    let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
-  
-    let subjects = JSON.parse(localStorage.getItem('subjects')) || [];
-  
-    function populateTeacherSelect() {
-      teachers.forEach(teacher => {
-        const option = document.createElement("option");
-        option.value = teacher.name;
-        option.textContent = teacher.name;
-        teacherSelect.appendChild(option);
-      });
+const url = 'http://localhost:3000'
+
+const idInput = document.getElementById("idInput");
+const pass = document.querySelector('#password')
+const addMarksBtn = document.getElementById("addMarksBtn");
+const errmsg = document.querySelector('#msg');
+
+// Function to handle adding marks
+async function addMarks() {
+
+    if (pass.value != 'password') {
+        errmsg.innerHTML = "Password is not correct";
+        return;
     }
-  
-    function populateSubjectSelect() {
-      subjects.forEach(subject => {
-        const option = document.createElement("option");
-        option.value = subject.name;
-        option.textContent = subject.name;
-        subjectSelect.appendChild(option);
-      });
+    else {
+        errmsg.innerHTML = ""; 
     }
-  
-    function addMark() {
-      const teacherName = teacherSelect.value;
-      const subjectName = subjectSelect.value;
-      const mark = parseFloat(markInput.value);
-      const teacher = teachers.find(teacher => teacher.name === teacherName);
-      const subject = subjects.find(subject => subject.name === subjectName);
-      if (teacher && subject && !isNaN(mark)) {
-        console.log(`Adding mark for ${subjectName} by ${teacherName}: ${mark}`);
-      } else {
-        alert("Please select a teacher, subject, and enter a valid mark.");
-      }
+
+    const teacherId = idInput.value;
+    const teacher = await getTeacher(teacherId);
+
+    if (teacher == null) {
+        errmsg.innerHTML = 'Teacher not found';
     }
-  
-    addMarkBtn.addEventListener("click", addMark);
-  
-    populateTeacherSelect();
-    populateSubjectSelect();
-  });
-  
+    else {
+        errmsg.innerHTML = '';
+        sessionStorage.setItem('teacher', JSON.stringify(teacher));
+        window.location.replace('teacherAddMarks.html')
+    }
+}
+
+async function getTeacher(id) {
+    try {
+        const teacher = await fetch(url + '/teachers/' + id);
+        const data = await teacher.json();
+        return data;
+    } catch (error) {
+        return null;
+    }
+}
+
+addMarksBtn.addEventListener("click", addMarks);
