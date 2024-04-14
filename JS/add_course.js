@@ -1,6 +1,6 @@
 const form = document.querySelector('#addCourseForm');
 const msg = document.querySelector('#msg');
-const url = 'http://localhost:3000';
+const url = 'https://marking-manager-api.vercel.app';
 
 form.addEventListener('submit', (e) => {
    e.preventDefault();

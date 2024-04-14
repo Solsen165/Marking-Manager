@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000'
+const url = 'https://marking-manager-api.vercel.app'
 
 const idInput = document.getElementById("idInput");
 const pass = document.querySelector('#password')
