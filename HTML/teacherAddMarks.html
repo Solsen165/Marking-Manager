@@ -1,7 +1,7 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teacher Section</title>
@@ -12,60 +12,83 @@
       padding: 20px;
       background-color: #f4f4f4;
     }
+
     h1 {
       text-align: center;
       margin-bottom: 20px;
     }
+
     .form-group {
       margin-bottom: 20px;
     }
+
     label {
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
     }
-    input[type="text"], button {
+
+    select,
+    input[type="number"],
+    button {
+      width: 100%;
       padding: 10px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-sizing: border-box;
     }
+
     button {
       background-color: #007bff;
       color: #fff;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #0056b3;
     }
-    .marks-container {
-      margin-top: 30px;
-    }
-    .marks-container ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .marks-container ul li {
-      margin-bottom: 10px;
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
     }
   </style>
 </head>
+
 <body>
   <h1>Teacher Panel</h1>
-  
+
+  <h2 id="teacherName"></h2>
+
+  <!--
   <div class="form-group">
-    <label for="idInput">Enter Teacher Id:</label>
-    <input type="text" id="idInput" placeholder="Teacher Id">
-    <label for="password">Enter password:</label>
-    <input type="password" id="password">
+    <label for="teacherSelect">Select Teacher:</label>
+    <select id="teacherSelect"></select>
+  </div>
+-->
+  <div class="form-group">
+    <label for="subjectSelect">Select Subject:</label>
+    <select id="subjectSelect">
+      <option value="none" selected disabled hidden>Select a Course</option>
+    </select>
   </div>
 
-  <button id="addMarksBtn">Add Marks</button>
-  <h2 id="msg"></h2>
+  <!--
+  <div class="form-group">
+    <label for="markInput">Enter Mark:</label>
+    <input type="number" id="markInput" placeholder="Mark">
+  </div>
 
+  <button id="addMarkBtn">Add Mark</button>
+  -->
+
+  <div id="tableDiv"></div>
+  <dib id="msg"></dib>
   <script src="../JS/classes.js"></script>
-  <script src="../JS/teacher.js"></script>
-
+  <script src="../JS/teacherAddMarks.js"></script>
 </body>
+
 </html>

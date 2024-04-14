@@ -1,7 +1,7 @@
 const availableCourseList = document.querySelector('#availableCourseDropdown');
 const selectedCourseList = document.querySelector('#selectedCourseList');
 const addCourseBtn = document.querySelector('#addCourseBtn');
-const form = document.querySelector('#addStudentForm')
+const form = document.querySelector('#addTeacherForm')
 const url = 'http://localhost:3000';
 
 let availableCourses = [];
@@ -45,8 +45,8 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     //const formData = new FormData(form);
     //const encoded = new URLSearchParams(formData).toString()
-    const encoded = grabStudentInfo();
-        fetch(url + '/students', {
+    const encoded = grabTeacherInfo();
+        fetch(url + '/teachers', {
             method: 'POST',
             body: encoded,
             headers: {
@@ -55,21 +55,21 @@ form.addEventListener('submit', (e) => {
         })
             .then((res) => {
                 if (res.ok) {
-                    msg.innerHTML = "Student added successfully: ";
+                    msg.innerHTML = "Teacher added successfully: ";
                     res.json().then ((data) => msg.innerHTML += `Id: ${data.id}, Name: ${data.name}`)
                 }
                 else {
-                    msg.innerHTML = "Something went wrong, the student was not added";
+                    msg.innerHTML = "Something went wrong, the teacher was not added";
                 }
             })
 })
 
-function grabStudentInfo() {
-    const name = document.querySelector('#studentName').value
+function grabTeacherInfo() {
+    const name = document.querySelector('#teacherName').value
     let courses = '';
     for (i in selectedCourses) {
         courses += `${selectedCourses[i].id}|`;
     }
     courses = courses.substring(0,courses.length-1);
-    return `studentName=${name}&studentCourses=${courses}`;
+    return `teacherName=${name}&teacherCourses=${courses}`;
 }

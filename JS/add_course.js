@@ -1,6 +1,6 @@
 const form = document.querySelector('#addCourseForm');
 const msg = document.querySelector('#msg');
-const url = 'https://marking-manager-api.vercel.app';
+const url = 'http://localhost:3000';
 
 form.addEventListener('submit', (e) => {
    e.preventDefault();
@@ -15,11 +15,11 @@ form.addEventListener('submit', (e) => {
    })
    .then((res) => {
     if (res.ok) {
-        msg.innerHTML = "Course created successfully: ";
+        msg.innerHTML = "Course added successfully: ";
         res.json().then((data) => {msg.innerHTML += `Id: ${data.id}, Title: ${data.name}, Credits: ${data.credits}`})
     }
     else {
-        msg.innerHTML = "Something went wrong, the course was not created";
+        msg.innerHTML = "Something went wrong, the course was not added";
     }
    })
 })

@@ -9,24 +9,31 @@ class Course {
 
 // Teacher class
 class Teacher {
-    constructor(id,name, department, courses) {
+    constructor(id,name, courses) {
         this.id = id;
         this.name = name;
-        this.department = department;
         this.courses = courses;
     }
 }
 
 // Student class
 class Student {
-    constructor(id, name, subjects, marks) {
+    constructor(id, name, courses, marks) {
         this.id = id;
         this.name = name;
-        this.subjects = subjects;
+        this.courses = courses;
         this.marks = marks;
     }
 
     addMark(subject, mark) {
         this.subjects[subject.name] = mark;
+    }
+
+    getMarkWithCourseId(id) {
+        for (let i in this.courses) {
+            if (this.courses[i].id == id) {
+                return this.marks[i];
+            }
+        }
     }
 }
