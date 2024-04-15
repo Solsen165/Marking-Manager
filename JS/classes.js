@@ -37,3 +37,22 @@ class Student {
         }
     }
 }
+
+class Marks {
+    constructor(studentcourse,attendance, performance, final_exam) {
+        this.student = student;
+        this.course = course;
+        this.attendance = attendance;
+        this.performance = performance;
+        this.final_exam = final_exam;
+    }
+
+    calculateFinalMark(attendancePercentage, performancePercentage, finalExamPercentage) {
+        // const totalPercentage = attendancePercentage + performancePercentage + finalExamPercentage;
+        const finalMark = (this.attendance * (attendancePercentage / 100)) +
+                         (this.performance * (performancePercentage / 100)) +
+                         (this.final_exam * (finalExamPercentage / 100));
+        
+        return finalMark;
+    }
+}
