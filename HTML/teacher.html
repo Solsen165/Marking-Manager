@@ -1,5 +1,6 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="UTF-8">
@@ -12,51 +13,67 @@
       padding: 20px;
       background-color: #f4f4f4;
     }
+
     h1 {
       text-align: center;
       margin-bottom: 20px;
     }
+
     .form-group {
+      text-align: center;
       margin-bottom: 20px;
     }
+
     label {
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
     }
-    input[type="text"], button {
+
+    input,
+    button {
+
       padding: 10px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-sizing: border-box;
     }
+
     button {
+      display: block;
+      margin: auto;
       background-color: #007bff;
       color: #fff;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #0056b3;
     }
+
     .marks-container {
       margin-top: 30px;
     }
+
     .marks-container ul {
       list-style-type: none;
       padding: 0;
     }
+
     .marks-container ul li {
       margin-bottom: 10px;
     }
   </style>
 </head>
+
 <body>
   <h1>Teacher Panel</h1>
-  
+
   <div class="form-group">
     <label for="idInput">Enter Teacher Id:</label>
     <input type="text" id="idInput" placeholder="Teacher Id">
+    <br><br>
     <label for="password">Enter password:</label>
     <input type="password" id="password">
   </div>
@@ -68,4 +85,5 @@
   <script src="../JS/teacher.js"></script>
 
 </body>
+
 </html>

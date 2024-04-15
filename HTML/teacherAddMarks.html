@@ -30,7 +30,7 @@
 
     select,
     input[type="number"],
-    button {
+    #submitBtn {
       width: 100%;
       padding: 10px;
       font-size: 16px;
@@ -41,6 +41,8 @@
 
     button {
       background-color: #007bff;
+      height: fit-content;
+      width: fit-content;
       color: #fff;
       cursor: pointer;
     }
@@ -49,11 +51,24 @@
       background-color: #0056b3;
     }
 
-    table,
-    th,
-    td {
+    table {
+      width: 80%;
+      margin: 20px auto;
       border: 1px solid black;
       border-collapse: collapse;
+      background-color: #fff;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid black;
+    }
+
+    th {
+      background-color: #007bff;
+      color: #fff;
     }
   </style>
 </head>
@@ -63,12 +78,6 @@
 
   <h2 id="teacherName"></h2>
 
-  <!--
-  <div class="form-group">
-    <label for="teacherSelect">Select Teacher:</label>
-    <select id="teacherSelect"></select>
-  </div>
--->
   <div class="form-group">
     <label for="subjectSelect">Select Subject:</label>
     <select id="subjectSelect">
@@ -76,15 +85,8 @@
     </select>
   </div>
 
-  <!--
-  <div class="form-group">
-    <label for="markInput">Enter Mark:</label>
-    <input type="number" id="markInput" placeholder="Mark">
-  </div>
-
-  <button id="addMarkBtn">Add Mark</button>
-  -->
-
+  <div id="percentsDiv"></div>
+  <br>
   <div id="tableDiv"></div>
   <dib id="msg"></dib>
   <script src="../JS/classes.js"></script>
